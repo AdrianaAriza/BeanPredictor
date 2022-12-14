@@ -8,8 +8,9 @@
 
 <body id="body">
   <center style=margin:50px>
+    <h1>COFFEE BEAN PREDICTOR<h1>
     <form>
-      <input type="file" name="Files" required multiple />
+      <input type="file" name="Files" required/>
       <button type="submit">UPLOAD PICTURE</button>
     </form>
     <img style=margin:20px id="bean" src="https://drive.google.com/uc?export=view&id=1uhphHp96_z3kTdsgSJHefWBTLKTeenoR">
@@ -38,10 +39,9 @@
   });
 
   async function predict() {
-    const Url = `https://8059-74-12-78-193.ngrok.io/predict/${img}`
+    const Url = `https://15C2-74-12-78-193.ngrok.io/predict/${img}`
     await fetch(Url).then(res => res.json())
       .then(res => {
-        console.log("holaaaaa" + res)
         const prediction = document.getElementById("prediction")
         prediction.innerHTML = "PREDICTED VALUE: " + res.bean + " bean."
         console.log(res)
