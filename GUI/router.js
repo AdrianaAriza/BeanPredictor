@@ -19,20 +19,16 @@ const auth = new google.auth.GoogleAuth({
 
 uploadRouter.post("/upload", upload.any(), async (req, res) => {
     try {
-      console.log(req.body);
-      console.log(req.files);
       const { body, files } = req;
       var r 
    
       for (let f = 0; f < files.length; f += 1) {
         await uploadFile(files[f]);
       }
-      console.log(id);
       return res.status(200).json({
         data: id, 
       });
     } catch (f) {
-      console.log(f.message);
       res.send(f.message);
     }
   });
@@ -52,7 +48,7 @@ uploadRouter.post("/upload", upload.any(), async (req, res) => {
       },
       fields: "id,name",
     });
-    console.log(`Uploaded file ${data} ${data.id}`);
+    console.log(`Uploaded file ${data.id}`);
     id = data.id;
   };
    

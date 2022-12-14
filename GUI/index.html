@@ -25,7 +25,6 @@
   const formElem = document.querySelector('form');
   var img;
   formElem.addEventListener('submit', async (e) => {
-    console.log("form submitted")
     e.preventDefault();
     await fetch('/upload', {
       method: 'POST',
@@ -44,7 +43,6 @@
       .then(res => {
         const prediction = document.getElementById("prediction")
         prediction.innerHTML = "PREDICTED VALUE: " + res.bean + " bean."
-        console.log(res)
         r = res.bean
       })
   }
